@@ -100,4 +100,4 @@ jobs:
       with:
         tag: "${{ env.DEVICE }}--${{ env.FILE_DATE }}"
         artifacts: "openwrt/bin/targets/*/*/*"
-        body: "IP: 192.168.2.1 Password: none"
+        body: "IP: 192.168.2.1 | Password: none"
