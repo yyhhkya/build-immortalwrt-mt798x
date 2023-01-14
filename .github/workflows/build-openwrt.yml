@@ -25,7 +25,7 @@ env:
 #   DEVICE3: n1-docker
 #   DEVICE4: n1-flash
   DEVICE1: newifi3-d2
-  UPLOAD_DOCKERHUB: true
+#   UPLOAD_DOCKERHUB: true
   UPLOAD_OUTPUT: true
 
 jobs:
