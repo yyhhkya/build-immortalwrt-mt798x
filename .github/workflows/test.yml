@@ -22,7 +22,9 @@ env:
 jobs:
    newifi3-d2:
     runs-on: ubuntu-20.04
-
+    permissions:
+      contents: write
+      
     steps:
     - name: 校验
       uses: actions/checkout@master
@@ -37,4 +39,3 @@ jobs:
         tag: "${{ env.DEVICE }}--${{ env.FILE_DATE }}"
         artifacts: "openwrt/*"
         body: "192.168.2.1_password"
-        token: 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
