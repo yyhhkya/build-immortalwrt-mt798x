@@ -11,19 +11,23 @@ on:
         default: 'false'
         
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
-  REPO_URL_LIENOL: https://github.com/Lienol/openwrt
-  REPO_BRANCH_LIENOL: 21.02
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_BRANCH: openwrt-21.02
+#   REPO_URL_LIENOL: https://github.com/Lienol/openwrt
+#   REPO_BRANCH_LIENOL: 21.02
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   TZ: Asia/Shanghai
-  DEVICE1: new3
+#   DEVICE1: new3
+#   DEVICE2: r3g
+#   DEVICE3: n1-docker
+#   DEVICE4: n1-flash
   UPLOAD_DOCKERHUB: true
   UPLOAD_OUTPUT: true
 
 jobs:
-   new3:
+#    new3:
+   build:
     runs-on: ubuntu-20.04
 
     steps:
