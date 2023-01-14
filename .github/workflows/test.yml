@@ -37,3 +37,4 @@ jobs:
         tag: "${{ env.DEVICE }}--${{ env.FILE_DATE }}"
         artifacts: "openwrt/*"
         body: "192.168.2.1_password"
+        token: ${{ secrets.github.token }}
