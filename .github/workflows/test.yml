@@ -1,0 +1,41 @@
+
+name: Build
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
+        
+env:
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_BRANCH: openwrt-21.02
+  FEEDS_CONF: feeds.conf.default
+  CONFIG_FILE: .config
+  TZ: Asia/Shanghai
+  DEVICE: newifi3-d2
+  UPLOAD_OUTPUT: true
+
+jobs:
+   newifi3-d2:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: 校验
+      uses: actions/checkout@master
+     
+    - name: 克隆源码
+      working-directory: /workdir
+      run: |
+        df -hT $PWD
+        git clone https://github.com/yyhhkya/build-immortalwrt openwrt
+
+    - name: 发布固件至 Release
+      uses: ncipollo/release-action@v1
+      with:
+        tag: "${{ env.DEVICE }}--${{ env.FILE_DATE }}"
+        artifacts: "openwrt/*"
+        body: "192.168.2.1_password"
