@@ -36,6 +36,6 @@ jobs:
     - name: 发布固件至 Release
       uses: ncipollo/release-action@v1
       with:
-        tag: "test"
+        tag: "${{ env.DEVICE }}"
         artifacts: "openwrt/*"
         body: "192.168.2.1_password"
