@@ -74,7 +74,7 @@ jobs:
     - name: Personalized script
       run: |
         cd openwrt
-        sed -i 's/192.168.1.1/192.168.123.1/g' package/base-files/files/bin/config_generate
+        sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
         neofetch
 
     - name: Download package
@@ -108,7 +108,7 @@ jobs:
       with:
         tag: "${{ env.DEVICE }}--${{ env.FILE_DATE }}"
         artifacts: "openwrt/bin/targets/*/*/*"
-        body: "192.168.123.1_password"
+        body: "192.168.2.1_password"
     
         
         
