@@ -26,12 +26,13 @@ env:
 #   DEVICE2: r3g
 #   DEVICE3: n1-docker
 #   DEVICE4: n1-flash
+  DEVICE: newifi3-d2
   UPLOAD_DOCKERHUB: true
   UPLOAD_OUTPUT: true
 
 jobs:
 #    new3:
-   build:
+   newifi3-d2:
     runs-on: ubuntu-20.04
 
     steps:
