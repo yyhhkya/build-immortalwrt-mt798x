@@ -82,7 +82,8 @@ jobs:
         echo "FILE_DATE=$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
 
     - name : 上传输出文件
-      uses: actions/upload-artifact@master
+#       uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@v2
       if: env.UPLOAD_OUTPUT == 'true' && !cancelled()
       with:
         name: Op-${{ env.DEVICE }}--${{ env.FILE_DATE }}
