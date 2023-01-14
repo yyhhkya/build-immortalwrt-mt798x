@@ -28,9 +28,7 @@ jobs:
       uses: actions/checkout@master
      
     - name: 克隆源码
-      working-directory: /workdir
       run: |
-        df -hT $PWD
         git clone https://github.com/yyhhkya/build-immortalwrt openwrt
 
     - name: 发布固件至 Release
