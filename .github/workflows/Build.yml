@@ -52,7 +52,7 @@ jobs:
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
 
-    - name: 处理配置
+    - name: 配置 Feeds
       run: |
         cp -f $GITHUB_WORKSPACE/.config $GITHUB_WORKSPACE/openwrt/
         cd openwrt
@@ -63,7 +63,7 @@ jobs:
         cp -f $GITHUB_WORKSPACE/.config $GITHUB_WORKSPACE/openwrt/
         ./scripts/feeds install -a
 
-    - name: 自定义脚本
+    - name: 修改 Lan IP
       run: |
         cd openwrt
         sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
@@ -90,7 +90,7 @@ jobs:
         name: Op-${{ env.DEVICE }}--${{ env.FILE_DATE }}
         path: openwrt/bin
         
-    - name: 处理文件
+    - name: 整理输出文件
       run: |
         cd openwrt/bin/targets/*/*
         rm -rf packages
