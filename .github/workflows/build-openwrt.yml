@@ -24,7 +24,7 @@ env:
 #   DEVICE2: r3g
 #   DEVICE3: n1-docker
 #   DEVICE4: n1-flash
-  DEVICE1: newifi3-d2
+  DEVICE: newifi3-d2
 #   UPLOAD_DOCKERHUB: true
   UPLOAD_OUTPUT: true
 
@@ -62,13 +62,13 @@ jobs:
 
     - name: deal with config
       run: |
-        cp -f $GITHUB_WORKSPACE/${{ env.DEVICE1 }}/.config $GITHUB_WORKSPACE/openwrt/
+        cp -f $GITHUB_WORKSPACE/.config $GITHUB_WORKSPACE/openwrt/
         cd openwrt
         echo "src-git kenzo https://github.com/kenzok8/openwrt-packages" >> ./feeds.conf.default
         echo "src-git small https://github.com/kenzok8/small" >> ./feeds.conf.default
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-        cp -f $GITHUB_WORKSPACE/${{ env.DEVICE1 }}/.config $GITHUB_WORKSPACE/openwrt/
+        cp -f $GITHUB_WORKSPACE/.config $GITHUB_WORKSPACE/openwrt/
         ./scripts/feeds install -a
 
     - name: Personalized script
@@ -95,7 +95,7 @@ jobs:
       uses: actions/upload-artifact@master
       if: env.UPLOAD_OUTPUT == 'true' && !cancelled()
       with:
-        name: Op-${{ env.DEVICE1 }}--${{ env.FILE_DATE }}
+        name: Op-${{ env.DEVICE }}--${{ env.FILE_DATE }}
         path: openwrt/bin
         
     - name: organize
@@ -106,7 +106,7 @@ jobs:
     - name: Upload firmware to release
       uses: ncipollo/release-action@v1
       with:
-        tag: "${{ env.DEVICE1 }}--${{ env.FILE_DATE }}"
+        tag: "${{ env.DEVICE }}--${{ env.FILE_DATE }}"
         artifacts: "openwrt/bin/targets/*/*/*"
         body: "192.168.123.1_password"
     
