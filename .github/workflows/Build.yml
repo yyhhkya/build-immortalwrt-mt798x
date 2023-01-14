@@ -90,7 +90,7 @@ jobs:
         
     - name: organize
       run: |
-        cd openwrt/bin/targets/*/
+        cd openwrt/bin/targets/*/*
         rm -rf packages
     
     - name: Upload firmware to release
