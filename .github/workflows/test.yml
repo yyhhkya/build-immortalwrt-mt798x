@@ -32,11 +32,9 @@ jobs:
         git clone https://github.com/yyhhkya/build-immortalwrt openwrt
 
     - name: 发布固件至 Release
-#       uses: ncipollo/release-action@v1
-    - uses: actions/checkout@v2
-    - uses: ncipollo/release-action@v1
+      uses: ncipollo/release-action@v1
       with:
         tag: "${{ env.DEVICE }}--${{ env.FILE_DATE }}"
         artifacts: "openwrt/*"
         body: "192.168.2.1_password"
-#         token: ${{ secrets.github.token }}
+#         token: ${{ github.token }}
