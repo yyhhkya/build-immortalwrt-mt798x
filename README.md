@@ -1,3 +1,3 @@
-# immortalwrt 云编译
+# immortalwrt 云编译仓库
 
-* `.config` 上传至根目录
+* 默认整合所有路由基础功能（ipv6等）
