@@ -10,16 +10,16 @@ on:
         default: 'false'
         
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_URL: https://github.com/hanwckf/immortalwrt-mt798x
   REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   TZ: Asia/Shanghai
-  DEVICE: newifi3-d2
+  DEVICE: 360t7
   UPLOAD_OUTPUT: true
 
 jobs:
-   newifi3-d2:
+   360t7:
     runs-on: ubuntu-20.04
     permissions:
       contents: write
