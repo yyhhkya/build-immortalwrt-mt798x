@@ -1,4 +1,4 @@
-name: Build
+name: t7
 
 on:
   repository_dispatch:
@@ -17,9 +17,10 @@ env:
   TZ: Asia/Shanghai
   DEVICE: 360t7
   UPLOAD_OUTPUT: true
+  UPLOAD_RELEASE: true
 
 jobs:
-   _360t7:
+   t7:
     runs-on: ubuntu-20.04
     permissions:
       contents: write
