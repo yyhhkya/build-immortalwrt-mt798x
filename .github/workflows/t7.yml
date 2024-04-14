@@ -17,7 +17,6 @@ env:
   TZ: Asia/Shanghai
   DEVICE: 360t7
   UPLOAD_OUTPUT: true
-  UPLOAD_RELEASE: true
 
 jobs:
    build:
